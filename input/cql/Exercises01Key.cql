@@ -6,6 +6,8 @@ Language Constructs
 Identifiers
 Case-Sensitivity
 
+[CQL Railroad Diagrams](http://build.fhir.org/ig/HL7/cql/19-l-cqlsyntaxdiagrams.html)
+
 There are several lexical errors throughout this library. Correct the errors to
 obtain a lexically correct library.
 */
