@@ -18,30 +18,32 @@ library Exercises01
 /*
 // This is a comment
 // Whitespace is all the "invisibles" (spaces, tabs, returns)
-DEFINE "This is a quoted identifier:
-  @20210329 + 3 days
+*/ // 1) Multi-line comments need a close
+// 2) CQL are case sensitive, so needs to define not DEFINE
+define "This is a quoted identifier": // 3) Quoted identifier missing a close quote
+  @2021-03-29 + 3 days // 4) DateTime literals use ISO date/time format
 
-define 1MoreIdentifier:
-  .0 'g'
+define _1MoreIdentifier: // 5) Unquoted identifiers can't begin with numbers
+  0.0 'g' // 6) decimal (and quantity) literals must have a leading zero
 
 // # Syntax Errors
 
-define "Inequality Expression"
-  4 <> 5
+define "Inequality Expression": // 7) Missing a colon after the define
+  4 != 5 // 8) Inequality symbol is !=, not <>
 
 define "Relative Comparison Expression":
-  4 < = 5
+  4 < = 5 // 9) No space between <= operator
 
 define "Quantity Expression":
-  5 g/dL
+  5 'g/dL' // 10) Units of a quantity are specified with a string
 
 // # Semantic Errors
 
 define "Reference Expression":
-  "quantity expression"
+  "Quantity Expression" // 11) Identifiers are case-sensitive
 
 define "String Concatenation":
-  1 + 'John'
+  '1' + 'John' // 12) Can't add strings and integers
 
 define "Warning Message":
   Message(1, true, '123', 'Warning', 'This is a warning message')
