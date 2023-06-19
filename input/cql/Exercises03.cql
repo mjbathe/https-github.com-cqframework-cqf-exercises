@@ -18,25 +18,25 @@ library Exercises03
 // # String Equality and Equivalence
 
 define "String Equality":
-  ('Abel' = 'abel') is _____
+  ('Abel' = 'abel') is false
 
 define "String Equivalence":
-  ('Abel' ~ 'abel') is _____
+  ('Abel' ~ 'abel') is true
 
 define "String Comparison":
-  ('Abel' < 'abel') is _____
+  ('Abel' < 'abel') is true
 
 define "String Inequality":
-  ('Abel' != 'abel') is _____
+  ('Abel' != 'abel') is true
 
 define "String Inequivalence":
-  ('Abel' !~ 'abel') is _____
+  ('Abel' !~ 'abel') is false
 
 define "String Equality With Null":
-  ('Abel' = null) is _____
+  ('Abel' = null) is null
 
 define "String Equivalence With Null":
-  ('Abel' ~ null) is _____
+  ('Abel' ~ null) is false
 
 // # Equality vs Equivalence
 
@@ -45,13 +45,13 @@ define T2: { X: 1, Y: null }
 define T3: { X: 1, Y: 2 }
 
 define TEqual:
-  (T1 = T2) is _____
+  (T1 = T2) is true
 
 define TEqualWithNull:
-  (T2 = T3) is _____
+  (T2 = T3) is null
 
 define TEquivalent:
-  (T2 ~ T3) is _____
+  (T2 ~ T3) is false
 
 define C1:
   Code {
@@ -70,89 +70,89 @@ define C2:
   }
 
 define CEqual:
-  (C1 = C2) is _____
+  (C1 = C2) is false
 
 define CEquivalent:
-  (C1 ~ C2) is _____
+  (C1 ~ C2) is true
 
 // # Arithmetic Operators
 
 define "Standard Precedence":
-  (2 + 5 * 10 = 52) is _____
+  (2 + 5 * 10 = 52) is true
 
 define "Force Precedence":
-  ((2 + 5) * 10 = 70) is _____
+  ((2 + 5) * 10 = 70) is is true
 
 define "Division Always Results in a Decimal":
-  (10 / 2 = 5.0) is _____
+  (10 / 2 = 5.0) is true
 
 define "Truncated Divide for Integer Division":
-  (10 div 2 = 5) is _____
+  (10 div 2 = 5) is true
 
 define "Modulo is the Remainder":
-  (10 mod 2 = 0) is _____
+  (10 mod 2 = 0) is true
 
 define "Negation":
-  (-(10) = -10) is _____
+  (-(10) = -10) is true
 
 define "Absolute Value":
-  (Abs(-10) = 10) is _____
+  (Abs(-10) = 10) is true
 
 define "Successor Of":
-  (successor of 1 = 2) is _____
+  (successor of 1 = 2) is true
 
 define "Predecessor Of":
-  (predecessor of 1 = 0) is _____
+  (predecessor of 1 = 0) is true
 
 define "Minimum Integer":
-  (minimum Integer = -2147483647 - 1) is _____
+  (minimum Integer = -2147483647 - 1) is true
 
 define "Maximum Integer":
-  (maximum Integer = 2147483647) is _____
+  (maximum Integer = 2147483647) is true
 
 // # Rounding And Exponents
 
 define "Default Round":
-  (Round(5.5) = 6) is ____
+  (Round(5.5) = 6) is true
 
 define "Precision Round":
-  (Round(5.55, 1) = 5.6) is _____
+  (Round(5.55, 1) = 5.6) is true
 
 define "Truncate":
-  (Truncate(5.5) = 5) is _____
+  (Truncate(5.5) = 5) is true
 
 define "Truncate Negative":
-  (Truncate(-5.5) = -5) is _____
+  (Truncate(-5.5) = -5) is true
 
 define "Floor":
-  (Floor(5.5) = 5) is _____
+  (Floor(5.5) = 5) is true
 
 define "Floor Negative":
-  (Floor(-5.5) = -6) is _____
+  (Floor(-5.5) = -6) is true
 
 define "Ceiling":
-  (Ceiling(5.5) = 6) is _____
+  (Ceiling(5.5) = 6) is true
 
 define "Ceiling Negative":
-  (Ceiling(-5.5) = -5) is _____
+  (Ceiling(-5.5) = -5) is true
 
 define "Integer Exponent":
-  (2 ^ 5 = 25) is _____
+  (2 ^ 5 = 25) is true
 
 define "Decimal Exponent":
-  (25 ^ 0.5 = 5) is _____
+  (25 ^ 0.5 = 5) is true
 
 define "Logarithm Base 5":
-  (Log(25, 5) = 2) is _____
+  (Log(25, 5) = 2) is true
 
 define "Logarithm Base 25":
-  (Log(5, 25) = 0.5) is _____
+  (Log(5, 25) = 0.5) is true
 
 define "Natural Logarithm":
-  (Ln(10) = 2.30258209288405) is _____
+  (Ln(10) = 2.30258209288405) is true
 
 define "Exponent":
-  (Exp(2.30258509288405) = 10) is _____
+  (Exp(2.30258509288405) = 10) is true
 
 /*
 For the remaining definitions, modify each expression so that it returns true, if it doesn't already
@@ -161,7 +161,7 @@ For the remaining definitions, modify each expression so that it returns true, i
 // # String Manipulation
 
 define "String Concatenate":
-   'AB' + 'CD'
+   'AB' + 'CD'= 'ABCD'
 
 define "String Concatenate With Nulls":
   'AB' + null

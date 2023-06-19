@@ -18,13 +18,14 @@ library Exercises04
 // # Intervals And Lists
 
 define "Closed-Open Interval":
-  Interval[3, 5)
+  Interval[3, 5) = Interval[3, 4]
 
 define "Closed-Open Decimal Interval":
-  Interval[3.0, 5.0)
+  Interval[3.0, 5.0) = Interval[3.0, 4.99999999]
 
 define "Closed-Closed DateTime Interval":
   Interval[@2014-01-01T00:00:00.0, @2015-01-01T00:00:00.0]
+  = Interval[@2014-01-01T00:00:00.000, @2015-01-01T00:00:00.000]
 
 define "Interval Contains":
   Interval[3, 5) contains 4
@@ -33,16 +34,16 @@ define "Interval In":
   4 in Interval[3, 5)
 
 define "Start Of Interval":
-  start of Interval[3, 5)
+  start of Interval[3, 5) = 3
 
 define "End of Interval":
-  end of Interval[3, 5)
+  end of Interval[3, 5) = 4 
 
 define "Width of Interval":
-  width of Interval[3, 5)
+  width of Interval[3, 5) = 1
 
 define "Size of Interval":
-  Size(Interval[3, 5))
+  Size(Interval[3, 5)) = 2
 
 define "Interval Equality":
   Interval[3, 5) = Interval[3, 4]
@@ -103,38 +104,38 @@ define "Tuple List":
   { { X: 1, Y: 1 }, { X: 2, Y: 2 } }
 
 define "List Indexer":
-  { 'a', 'b', 'c'}[1]
+  { 'a', 'b', 'c'}[1] = 'b'
 
 define "List Index Of":
-  IndexOf({ 1, 2, 3 }, 2)
+  IndexOf({ 1, 2, 3 }, 2) = 1
 
 define "List Contains":
-  { 1, 'abc', null } contains null
+  { 1, 'abc', null } contains null) is null
 
 define "List Length":
-  Length({ 1, 'abc', null })
+  Length({ 1, 'abc', null }) = 3
 
 define "List First":
-  First({ 1, 2, 3 })
+  First({ 1, 2, 3 }) = 1
 
 define "List Last":
-  Last({ 1, 2, 3 })
+  Last({ 1, 2, 3 }) = 3
 
 define "Singleton From":
-  singleton from { 1 }
+  singleton from { 1 } = 1
 
 // This will throw a run-time error, stopping evaluation of the library
 //define "Singleton From (Error)":
 //  singleton from { 1, 2, 3 }
 
 define "List Take":
-  Take({ 1, 2, 3, 4 }, 2)
+  Take({ 1, 2, 3, 4 }, 2) = { 1, 2 }
 
 define "List Skip":
-  Skip({ 1, 2, 3, 4 }, 2)
+  Skip({ 1, 2, 3, 4 }, 2) = { 3, 4 }
 
 define "List Tail":
-  Tail({ 1, 2, 3, 4 })
+  Tail({ 1, 2, 3, 4 }) = { 2, 3 , 4}
 
 define "ListX":
   { 1, 2, 3, 4, 5 }
@@ -161,54 +162,55 @@ define ListA: { 1, 2, 3, 4, 5 }
 define ListB: { 4, 5, 6, 7, 8 }
 
 define "List Union":
-  ListA union ListB
+  ListA union ListB = { 1, 2, 3, 4, 5, 6, 7, 8 }
 
 define "Choice List Union":
-  { 1, 2, 3 } union { 'a', 'b', 'c' }
+  { 1, 2, 3 } union { 'a', 'b', 'c' }) = { 1, 2, 3, 'a', 'b', 'c' }
+
 
 define "List Intersect":
-  ListA intersect ListB
+  ListA intersect ListB = { 4, 5 }
 
 define "List Except":
-  ListA except ListB
+  ListA except ListB = { 1, 2, 3 }
 
 // # Aggregates
 
 define "Aggregate Count":
-  Count({ 1, 2, 3, null})
+  Count({ 1, 2, 3, null})  = 3
 
 define "Aggregate Sum":
-  Sum({ 1, 2, 3, null })
+  Sum({ 1, 2, 3, null }) = 6
 
 define "Aggregate Min":
-  Min({ 1, 2, 3, null })
+  Min({ 1, 2, 3, null }) = 1
 
 define "Aggregate Max":
-  Max({ 1, 2, 3, null })
+  Max({ 1, 2, 3, null }) = 3
 
 define "Aggregate Avg":
-  Avg({ 1, 2, 3, null })
+  Avg({ 1, 2, 3, null }) = 2
 
 define "Aggregate Median":
-  Median({ 1, 2, 3, null })
+  Median({ 1, 2, 3, null }) = 2
 
 define "Aggregate Mode":
-  Mode({ 1, 2, 3, null })
+  Mode({ 1, 2, 3, null }) = 1
 
 define "Aggregate Variance":
-  Variance({ 1, 2, 3, null })
+  Variance({ 1, 2, 3, null }) = 1
 
 define "Aggregate StdDev":
-  StdDev({ 1, 2, 3, null })
+  StdDev({ 1, 2, 3, null }) = 1
 
 define "Aggregate Population Variance":
-  PopulationVariance({ 1, 2, 3, null })
+  PopulationVariance({ 1, 2, 3, null }) = 0.66666666
 
 define "Aggregate Population StdDev":
-  PopulationStdDev({ 1, 2, 3, null })
+  PopulationStdDev({ 1, 2, 3, null }) = 0.81649657
 
 define "Aggregate All True":
-  AllTrue({ true, false, true })
+  AllTrue({ true, false, true }) is false
 
 define "Aggregate Any True":
   AnyTrue({ true, false, true })
@@ -216,37 +218,52 @@ define "Aggregate Any True":
 // # Lists of Strings
 
 define "Combine Expression":
-  Combine({ 'ab', 'cd', 'ef' })
+  Combine({ 'ab', 'cd', 'ef' }) = 'abcdef'
 
 define "Combine With Separator":
-  Combine({ 'completed', 'refused', 'pending' }, ';')
+  Combine({ 'completed', 'refused', 'pending' }, ';') =  'completed;refused;pending'
 
 define "Split Expression":
-  Split('completed;refused;pending', ';')
-
+ Split('completed;refused;pending', ';') = { 'completed', 'refused', 'pending' }
+ 
 // # Lists of Lists
 
 define "Flatten Expression":
-  flatten { { 1, 2, 3 }, { 2, 3, 4 }, { 3, 4, 5 } }
+  flatten { { 1, 2, 3 }, { 2, 3, 4 }, { 3, 4, 5 } } = { 1, 2, 3, 2, 3, 4, 3, 4, 5 }
 
 define "Distinct Expression":
-  distinct { 1, 2, 3, 2, 3, 4, 3, 4, 5 }
+  distinct { 1, 2, 3, 2, 3, 4, 3, 4, 5 }  = { 1, 2, 3, 4, 5 }
 
 define "Flatten Not Recursive":
-  { { 1, 2, 3 }, { { 'a', 'b' }, { 'x', 'y' } } }
+  { { 1, 2, 3 }, { { 'a', 'b' }, { 'x', 'y' } } })
+    = { 1, 2, 3, { 'a', 'b' }, { 'x', 'y' } }
 
 define "Flatten Lists and Elements":
-  { { 1, 2, 3 }, 2, 3, 4 }
+  { { 1, 2, 3 }, 2, 3, 4 }) = { 1, 2, 3, 2, 3, 4 }
 
 // # Lists of Intervals
 
 define "Collapse Expression":
-  collapse { Interval[1, 6], Interval[3, 7], Interval[9, 12] }
+  collapse { Interval[1, 6], Interval[3, 7], Interval[9, 12] })
+    = { Interval[1, 7], Interval[9, 12] }
 
 define "Expand Expression":
-  expand { Interval[1, 7], Interval[9, 12] }
+  expand { Interval[1, 7], Interval[9, 12] })
+    = {
+      Interval[1, 1],
+      Interval[2, 2],
+      Interval[3, 3],
+      Interval[4, 4],
+      Interval[5, 5],
+      Interval[6, 6],
+      Interval[7, 7],
+      Interval[9, 9],
+      Interval[10, 10],
+      Interval[11, 11],
+      Interval[12, 12]
+    }
 
-// This overload of expand was introduced STU in 1.5 and is
-// not yet implemented in the Java-based CQL engine
+// This overload of expand was introduced STU in 1.5 
+// and is not yet implemented in the Java-based engine
 //define "Expand Interval Expression":
-//  expand Interval[1, 10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+//  expand Interval[1, 10] 
