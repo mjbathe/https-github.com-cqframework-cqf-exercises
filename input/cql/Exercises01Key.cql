@@ -17,7 +17,7 @@ library Exercises01Key
 // This is a comment
 // Whitespace is all the "invisibles" (spaces, tabs, returns)
 */ // 1) Multi-line comments need a close
-// 2) CQL is case-sensitive, so needs to define not DEFINE
+// 2) CQL are case-sensitive, so needs to define not DEFINE
 define "This is a quoted identifier": // 3) Quoted identifier missing a close quote
   @2021-03-29 + 3 days // 4) DateTime literals use ISO date/time format
 
